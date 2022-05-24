@@ -4,7 +4,7 @@
     * *            * * *
    * * *            * *
   * * * *            *
-Hint. Use for loop in java, the syntax is same as that in C++.   */
+Hint: Use for loop in java, the syntax is same as that in C++.   */
 
 public class LE1_Prob2a
 {
