@@ -1,44 +1,160 @@
 /*
-3. Test for Polymorphism
-Write another statement in Application class: Mother m1=new Child ( ); Now, call show () with reference variable m1 and ‘.’ (dot) operator. 
-Discuss the result with your instructor. Now, make the method show ( ) static in Mother only and check the results after executing Application. 
-Repeat this by making show () static in Child only. Observe the errors. Test whether the static methods are inheritable or not. Now make show () static in both 
-Mother as well as in Child and discuss the results with your instructor. Make a table to summarize your results.
+Ques 3. 
+Beautiful Code: Separate out uncompromisers JUET students create a game of ducks. There were Rubber Ducks (RD),Wooden 
+Ducks (WD), RedHead Ducks (RHD), and Lake Ducks (LD), as of now. There may be more in the future. As it can be guessed, 
+all ducks can swim. RD and WD can’t fly. RD squeaks. WD is mute. RHD and LD quack. Design and Implement.You might be 
+tempted to make an abstract class ‘Duck’ by keeping fly and quack behaviors abstract and swim behavior defined. 
+Although this approach is not wrong, but definitely not the best. Think and write some beautiful code using interfaces.
 */
 
-// ******** Main.java  ************
- 		
-		// in case both show functions of mother and child are not static runtime polymorphism(dynamic binding) will be followed
-		// i.e. show function of the type of object will be shown
-		
-		// in case both show functions of mother and child are static compile time polymorphism(static binding) will be followed
-		// i.e. show function of the type of reference variable will be shown
-		
-		// in case only one of the c;ass is static program will show an error and overriding won't be possible
+//Main.java
 
 public class Main
 {
 	public static void main(String[] args) {
-		Mother m1 = new Child();
-		m1.show();
+		duck wd = new WD();
+		duck rd = new RD();
+		duck rhd = new RHD();
+		duck ld = new LD();
+		
+		wd.display();
+		wd.performFly();
+		wd.performQuack();
+		wd.swim();
+		
+		
+		rd.display();
+		rd.performFly();
+		rd.performQuack();
+		rd.swim();
+		
+		rhd.display();
+		rhd.performFly();
+		rhd.performQuack();
+		rhd.swim();
+		
+		ld.display();
+		ld.performFly();
+		ld.performQuack();
+		ld.swim();
 	}
 }
 
+interface quacking{
+    void quack();
+}
 
-//mother.java
 
-class Mother
-{
-    public static void show(){
-        System.out.println("Hello World");
+class quacks implements quacking{
+    public void quack(){
+        System.out.println("Quacks");
     }
 }
 
-//child.java
 
-class Mother
-{
-    public static void show(){
-        System.out.println("Hello World");
+class silent implements quacking{
+    public void quack(){
+        System.out.println("Silence");
+    }
+}
+
+
+class squeak implements quacking{
+    public void quack(){
+        System.out.println("squeaks");
+    }
+}
+
+
+interface fly{
+    void flies();
+}
+
+
+
+class canf implements fly{
+    public void flies(){
+        System.out.println("can fly");
+    }
+}
+
+class cannotf implements fly{
+    public void flies(){
+        System.out.println("cannot fly");
+    }
+}
+
+
+
+class WD extends duck{
+    public WD(){
+        q = new silent();
+        f = new cannotf();
+    }
+    
+    public void display(){
+        System.out.println("Wooden Duck");
+    }
+}
+
+
+class RD extends duck{
+    public RD(){
+        q = new squeak();
+        f = new cannotf();
+    }
+    
+    public void display(){
+        System.out.println("Rubber Duck");
+    }
+}
+
+
+
+class RHD extends duck{
+    public RHD(){
+        q = new quacks();
+        f = new canf();
+    }
+    
+    public void display(){
+        System.out.println("Red head Duck");
+    }
+}
+
+class LD extends duck{
+    public LD(){
+        q = new quacks();
+        f = new canf();
+    }
+    
+    public void display(){
+        System.out.println("Lake Duck");
+    }
+}
+
+//duck.java
+
+public abstract class duck{
+    
+    fly f ;
+    quacking q ;
+    
+    public duck(){
+        
+    }
+    
+    public abstract void display();
+    
+    public void performFly(){
+        f.flies();
+    }
+    
+    public void performQuack(){
+        q.quack();
+    }
+    
+    public void swim(){
+        System.out.println("All ducks float");
     }
 }
