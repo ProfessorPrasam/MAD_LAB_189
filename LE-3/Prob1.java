@@ -11,3 +11,60 @@ fighters.
 You are required to create a design first on paper and then write implementation on your machine. Make abstract classes 
 and concrete classes. Decide which methods should be made abstract or non-abstract.
 */
+
+//Main.java
+
+public class Main
+{
+	public static void main(String[] args) {
+		arjun a = new arjun();
+	    duryodhan d = new duryodhan();
+		
+		a.fight();
+		a.obey();
+		a.kind();
+		
+		d.fight();
+		d.obey();
+		d.kind();
+	}
+}
+
+//arjun.java
+
+class arjun extends qualities{
+    void obey()
+    {
+        System.out.println("obedient");
+    }
+    
+    void kind()
+    {
+        System.out.println("kind");
+    }
+} 
+
+//duryodhan.java
+
+class duryodhan extends qualities{
+    void obey()
+    {
+        System.out.println("Not obedient");
+    }
+    
+    void kind()
+    {
+        System.out.println("Not kind");
+    }
+} 
+
+//qualities.java
+abstract class qualities{
+    void fight()
+    {
+        System.out.println("All bharatvanshis are fighters");
+    }
+    
+    abstract void obey();
+    abstract void kind();
+}
