@@ -8,7 +8,6 @@ Kauravs were 100 in numbers, but one of them ‘Vikarn’ was a noble man- a goo
 fighter, kind and obedient. If you dive a little more in the history, you will come to know
 that Pandavs and Kauravs were actually Bharatvanshi. And all bharatvanshis had been
 fighters.
-You are required to create a design first on paper and then write implementation on
-your machine. Make abstract classes and concrete classes. Decide which methods
-should be made abstract or non-abstract.
+You are required to create a design first on paper and then write implementation on your machine. Make abstract classes 
+and concrete classes. Decide which methods should be made abstract or non-abstract.
 */
